@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sudoku_header.h                                    :+:      :+:    :+:   */
+/*   ft_check_valid_number.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadlercr <aadlercr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/24 21:21:28 by aadlercr          #+#    #+#             */
-/*   Updated: 2019/08/25 13:53:35 by aadlercr         ###   ########.fr       */
+/*   Created: 2019/08/25 17:30:29 by aadlercr          #+#    #+#             */
+/*   Updated: 2019/08/25 21:41:08 by aadlercr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SUDOKU_HEADER_H
-#define SUDOKU_HEADER_H
-#include <unistd.h>
-#include <stdlib.h>
-
-typedef enum	e_bool
-{
-	false = 0,	true
-}				t_bool;
-
-typedef	struct	s_index
-{
-	int		col;
-	int		row;
-	t_bool	found;
-}				t_index;
+#include "sudoku_header.h"
 
 t_bool		ft_check_valid_row(int **board, int num, int c, int r)
 {
@@ -66,7 +51,7 @@ t_bool		ft_check_valid_box(int **board, int num, int c, int r)
 	{
 		while (row_index < (((r / 3) * 3) + 3))
 		{
-			if (board[col_index][row_index] == num && 
+			if (board[col_index][row_index] == num &&
 			((col_index != c) && (row_index != r)))
 				return (false);
 			row_index++;
@@ -88,4 +73,13 @@ t_bool		ft_check_valid_number(int **board, int num, int col, int row)
 	return (true);
 }
 
-#endif
+int			**ft_allocate_space(int **board)
+{
+	int i;
+
+	board = (int **)malloc(9 * sizeof(int *));
+	i = 0;
+	while (i < 9)
+		board[i++] = (int *)malloc(9 * sizeof(int));
+	return (board);
+}
