@@ -6,7 +6,7 @@
 /*   By: aadlercr <aadlercr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/24 09:58:00 by aadlercr          #+#    #+#             */
-/*   Updated: 2019/08/25 11:24:49 by aadlercr         ###   ########.fr       */
+/*   Updated: 2019/08/25 11:59:00 by aadlercr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ t_index		ft_find_next_empty(int **board)
 
 	row = 0;
 	col = 0;
-	next_empty.col = col;
-	next_empty.row = row;
 	next_empty.found = false;
 	while (col < 9)
 	{
@@ -129,6 +127,7 @@ int			**ft_set_board(char const **argv, int **board)
 int			main(int argc, char const **argv)
 {
 	int **board;
+	clock_t t;
 
 	board = NULL;
 	if (argc != 10)
@@ -139,7 +138,6 @@ int			main(int argc, char const **argv)
 	{
 		board = ft_set_board(argv, board);
 		ft_print_board(board);
-		clock_t t;
 		t = clock();
 		if (ft_solve_board(board))
 			ft_print_board(board);
