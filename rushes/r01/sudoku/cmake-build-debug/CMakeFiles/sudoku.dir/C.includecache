@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/aadlercr/CLionProjects/PISCINE_HIVE/D03/sudoku/header.h
+unistd.h
+-
+stdlib.h
+-
+
+/Users/aadlercr/CLionProjects/PISCINE_HIVE/D03/sudoku/main.c
+header.h
+/Users/aadlercr/CLionProjects/PISCINE_HIVE/D03/sudoku/header.h
+
